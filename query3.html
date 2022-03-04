@@ -1,0 +1,61 @@
+<!doctype html><html><head><style type="text/css"><style>
+    .pulse {
+    border: 1px solid blue;
+    fill: lightblue;
+    stroke: purple;
+    -webkit-transform: scale(1);
+    -webkit-transform-origin: 50% 50%;
+    transform: scale(1);
+    transform-origin: 50% 50%;
+    }
+    .pulse:hover
+    {
+    -webkit-animation-name: pulsar;
+    -webkit-animation-duration: 0.2s;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-direction: alternate;
+    animation-name: pulsar;
+    animation-duration: 0.2s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    -webkit-transform-origin: 50% 50%;
+    transform-origin: 50% 50%;
+    }
+    @keyframes pulsar {
+    from {
+    fill: rgb(92, 218, 235);
+    }
+    to {
+    fill: rgb(14, 78, 138);
+    transform: scale(1.3,1.3);
+    transform-origin: 50% 50%;
+    }
+    }
+    </style>
+    <svg class='pulse' width='30' height='30'></svg></style></head><body><script type='text/javascript' src='https://d3js.org/d3.v7.min.js'></script>
+    <script>
+      
+        d3.select('body')
+    .append('div')
+    .style('width', '350px')
+    .style('height', '300px')
+    .style('background-color', 'brown')
+    .style(  'border-style', 'solid')
+  .style('border-bottom-style', 'dotted')
+    .style('border-color','red cyan black gold')
+    d3.selectAll("div")
+    .on("mouseover", function(event){
+    d3.select(this)
+    .style("background-color", "green");
+    // Get current event info
+    // Note: d3.event (event) passed as the first argument to all listeners
+    console.log(event);
+    // Get x & y co-ordinates
+    // Note: d3.mouse was removed in d3v6, you should use d3.pointer(event)
+    console.log(d3.pointer(event));
+    })
+    .on("mouseout", function(){
+    d3.select(this)
+    .style("background-color", "lavender")
+    });
+    </script><script type="text/javascript"></script></body><html>
